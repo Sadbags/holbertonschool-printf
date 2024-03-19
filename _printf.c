@@ -20,27 +20,24 @@ if (format[i] == '%' && format[i + 1] != '\0')
 if (format[i + 1] == '%')
 {
 count += _putchar(format[i++]);
-i++;
+i += 2;
+}
+else if (format[i = 1] == 'c')
+{
+    char ch = va_arg(valist, int);
+    count += _putchar(ch);
+    i += 2;
 }
 else
 {
-while (format[i + 1] == ' ' && format[i + 1] != '\0')
-i++;
-if (format[i] == ' ')
-{
-count += _putchar(format[i++]);
-i++;
-}
-else
-{
-count += _putchar(format[i++]);
-i++;
-}
+    count += _putchar('%');
+    i++;
 }
 }
 else
 {
-count += _putchar(format[i++]);
+    count += _putchar(format[i]);
+    i++;
 }
 }
 va_end(valist);
