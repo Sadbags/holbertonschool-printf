@@ -44,3 +44,9 @@ The output will be:
 
 * _printf:
 * main.h
+* man_3_printf
+* README.md
+
+# Authors
+* Bryan Garcia:
+* Elvin Millan:

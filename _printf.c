@@ -1,49 +1,23 @@
 #include "main.h"
+#include <stdlib.h>
+#include <stdarg.h>
 
 /**
- * _printf - prints anything
- * @format: string to print
- *
- * Return: total count of characters printed
+ * _printf - prints stdout
+ * 
+ * @format: format specifier
+ * Return: number of bytes
 */
 int _printf(const char *format, ...)
 {
-int i = 0, count = 0;
-va_list valist;
-va_start(valist, format);
-if (format == NULL)
-return (-1);
-while (format[i] != '\0')
-{
-if (format[i] == '%' && format[i + 1] != '\0')
-{
-if (format[i + 1] == '%')
-{
-count += _putchar(format[i++]);
-i++;
-}
-else
-{
-while (format[i + 1] == ' ' && format[i + 1] != '\0')
-i++;
-if (format[i] == ' ')
-{
-count += _putchar(format[i++]);
-i++;
-}
-else
-{
-count += _putchar(format[i++]);
-i++;
-}
-}
-}
-else
-{
-count += _putchar(format[i++]);
-}
-}
-va_end(valist);
-return (count);
-
+    unsigned int i, count = 0;
+    va_list args;
+    va_start(args, format);
+    for (i = 0; format[i] != '\0'; i++)
+    {
+        if (format[i] != '%')
+        {
+            putchar();
+        }
+    }
 }
