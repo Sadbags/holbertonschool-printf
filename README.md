@@ -46,6 +46,8 @@ The output will be:
 * main.h
 * man_3_printf
 * README.md
+# Flowchart
+![image](https://github.com/Sadbags/holbertonschool-printf/assets/159051688/ddf57731-9d80-4dee-91f9-0354ec869964)
 
 # Authors
 * Bryan Garcia:
