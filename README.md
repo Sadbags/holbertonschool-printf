@@ -1,4 +1,5 @@
-# Printf Proyect
+# Printf proyect
+Hello welcome to our first group proyect;)
 
 # Proyect Objective
 The objective of this project is to create a printf function that emulates the one in the standard library. 
@@ -42,10 +43,14 @@ The output will be:
 
 # Files 
 
-* _printf:
-* main.h
-* man_3_printf
-* README.md
+* _printf.c: main function
+* main.h: header file
+* man_3_printf: Man page
+* README.md: this file
+* _putchar.c: putchar function
+* printf_str.c: printf_str function
+* printf_int.c: print_int function
+* printf_bin.c: print_bin function
 # Flowchart
 ![image](https://github.com/Sadbags/holbertonschool-printf/assets/159051688/ddf57731-9d80-4dee-91f9-0354ec869964)
 
