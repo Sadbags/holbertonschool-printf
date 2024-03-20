@@ -6,7 +6,8 @@ The objective of this project is to create a printf function that emulates the o
 
 How to use github with a collaborator
 
-#Eviroment
+# Evironment
+
 Language: C
 Style guidelines: Betty style
 
