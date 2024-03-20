@@ -5,7 +5,9 @@ Hello welcome to our first group proyect;)
 The objective of this project is to create a printf function that emulates the one in the standard library. 
 
 How to use github with a collaborator
-
+#Eviroment
+Language: C
+Style guidelines: Betty style
 
 # Prototype in use
 int _printf(const *format ...)
