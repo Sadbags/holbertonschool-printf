@@ -1,4 +1,4 @@
-.TH _PRINTF 3 2021-11-9 GNU
+.TH _PRINTF 3 2024-03-20 GNU
 
 .SH NAME
 
@@ -10,13 +10,7 @@ _printf - formated output conversion
 
 int _printf(const char *format, ...);
 
-int print_char(va_list c);
-
-int print_str(va_list s);
-
-int print_num(va_list i);
-
-int get_specifier(char char_mod, va_list valist, int spaces);
+int print_number(int n);
 
 int _putchar(char c);
 
@@ -68,10 +62,10 @@ int main(void)
 
 int main(void)
 {
-    _printf("This will print a character: %c\n", 'C');
-    _printf("This will print a string: %s\n", "String");
-    _printf("This will print a number using the i specifier: %i\n", 34);
-    _printf("This will print a number using the d specifier: %d\n", 34);
+    _printf("This is gonna print a character: %c\n", 'C');
+    _printf("This is gonna print a string: %s\n", "String");
+    _printf("This is gonna print a number using the i specifier: %i\n", 20);
+    _printf("This is gonna print a number using the d specifier: %d\n", 20);
 
     return (0);
 }
