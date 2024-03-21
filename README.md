@@ -52,9 +52,7 @@ The output will be:
 * man_3_printf: Man page
 * README.md: this file
 * _putchar.c: putchar function
-* printf_str.c: printf_str function
-* printf_int.c: print_int function
-* printf_bin.c: print_bin function
+
 # Flowchart
 ![image](https://github.com/Sadbags/holbertonschool-printf/assets/159051688/ddf57731-9d80-4dee-91f9-0354ec869964)
 
