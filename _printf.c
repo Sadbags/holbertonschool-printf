@@ -42,7 +42,8 @@ int _printf(const char *format, ...) {
                     count += printf("%u", num);
                     break;
                 }
-                case 'o': {
+                case 'o':
+                {
                     unsigned int num = va_arg(args, unsigned int);
                     count += printf("%o", num);
                     break;
@@ -59,6 +60,10 @@ int _printf(const char *format, ...) {
                     count += printf("%%r");
                     break;
                 }
+                case '%':
+                    putchar('%');
+                    count++;
+                    break;
                 default:
                     count += printf("%%");
                     break;
