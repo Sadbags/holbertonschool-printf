@@ -6,7 +6,6 @@ int _printf(const char *format, ...) {
     void *ptr;
     int count = 0;
     va_start(args, format);
-    
 
     while (*format != '\0') {
         if (*format == '%') {
@@ -16,56 +15,53 @@ int _printf(const char *format, ...) {
                     ptr = va_arg(args, void *);
                     count += printf("%p", ptr);
                     break;
-                case 'c': 
-                {
+                case 'c': {
                     char c = va_arg(args, int);
                     putchar(c);
                     count++;
                     break;
                 }
-                case 's': 
-                {
+                case 's': {
                     char *str = va_arg(args, char *);
                     count += printf("%s", str);
                     break;
                 }
                 case 'd':
-                case 'i':
-                {
+                case 'i': {
                     int num = va_arg(args, int);
                     count += printf("%d", num);
                     break;
                 }
-                case 'u': 
-                {
+                case 'u': {
                     unsigned int num = va_arg(args, unsigned int);
                     count += printf("%u", num);
                     break;
                 }
-                case 'o':
-                {
+                case 'o': {
                     unsigned int num = va_arg(args, unsigned int);
                     count += printf("%o", num);
                     break;
                 }
                 case 'x': 
-                case 'X':
-                {
+                case 'X': {
                     unsigned int num = va_arg(args, unsigned int);
                     count += printf("%x", num);
                     break;
                 }
-                case 'r': 
-                {
+                case 'r': {
                     count += printf("%%r");
                     break;
                 }
-                case '%':
+                case '%': {
                     putchar('%');
                     count++;
                     break;
+                }
                 default:
-                    count += printf("%%");
+                    putchar('%');
+                    count++;
+                    putchar(*format);
+                    count++;
                     break;
             }
         } else {
@@ -78,4 +74,3 @@ int _printf(const char *format, ...) {
     va_end(args);
     return count;
 }
-
