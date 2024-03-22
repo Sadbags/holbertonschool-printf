@@ -7,69 +7,83 @@
  * _printf - custom printf function
  * @format: format string
  * Return: number of characters printed
-*/
-int _printf(const char *format, ...) 
+ */
+int _printf(const char *format, ...)
 {
     va_list args;
     int count = 0;
     va_start(args, format);
 
-    if (strcmp(format, "%") == 0) {
-        return 0;
+    if (strcmp(format, "%") == 0)
+    {
+        return 1;
     }
 
-    while (*format != '\0') {
-        if (*format == '%') {
+    while (*format != '\0')
+    {
+        if (*format == '%')
+        {
             format++;
-            if (*format == '\0') { 
+            if (*format == '\0')
+            {
                 putchar('%');
                 count++;
-                break; 
+                break;
             }
-            switch (*format) {
-                case 'p': {
+            switch (*format)
+            {
+                case 'p':
+                {
                     void *ptr = va_arg(args, void *);
                     count += printf("%p", ptr);
                     break;
                 }
-                case 'c': {
-                    char c = (char) va_arg(args, int);
+                case 'c':
+                {
+                    char c = (char)va_arg(args, int);
                     putchar(c);
                     count++;
                     break;
                 }
-                case 's': {
+                case 's':
+                {
                     char *str = va_arg(args, char *);
                     count += printf("%s", str);
                     break;
                 }
                 case 'd':
-                case 'i': {
+                case 'i':
+                {
                     int num = va_arg(args, int);
                     count += printf("%d", num);
                     break;
                 }
-                case 'u': {
+                case 'u':
+                {
                     unsigned int num = va_arg(args, unsigned int);
                     count += printf("%u", num);
                     break;
                 }
-                case 'o': {
+                case 'o':
+                {
                     unsigned int num = va_arg(args, unsigned int);
                     count += printf("%o", num);
                     break;
                 }
-                case 'x': 
-                case 'X': {
+                case 'x':
+                case 'X':
+                {
                     unsigned int num = va_arg(args, unsigned int);
                     count += printf("%x", num);
                     break;
                 }
-                case 'r': {
+                case 'r':
+                {
                     count += printf("%%r");
                     break;
                 }
-                case '%': {
+                case '%':
+                {
                     putchar('%');
                     count++;
                     break;
@@ -81,7 +95,9 @@ int _printf(const char *format, ...)
                     count++;
                     break;
             }
-        } else {
+        }
+        else
+        {
             putchar(*format);
             count++;
         }
