@@ -14,7 +14,6 @@ int _printf(const char *format, ...)
             if (*format == '\0') {
                 putchar('%');
                 count++;
-                continue
             }
             switch (*format) {
                 case 'p': {
