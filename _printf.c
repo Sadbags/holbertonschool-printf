@@ -2,9 +2,9 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-int _printf(const char *format, ...) {
+int _printf(const char *format, ...) 
+{
     va_list args;
-    void *ptr;
     int count = 0;
     va_start(args, format);
 
@@ -12,12 +12,13 @@ int _printf(const char *format, ...) {
         if (*format == '%') {
             format++;
             switch (*format) {
-                case 'p': 
-                    ptr = va_arg(args, void *);
+                case 'p': {
+                    void *ptr = va_arg(args, void *);
                     count += printf("%p", ptr);
                     break;
+                }
                 case 'c': {
-                    char c = va_arg(args, int);
+                    char c = (char) va_arg(args, int);
                     putchar(c);
                     count++;
                     break;
@@ -54,7 +55,8 @@ int _printf(const char *format, ...) {
                     break;
                 }
                 case '%': {
-                    count += printf("%%");
+                    putchar('%');
+                    count++;
                     break;
                 }
                 default:
