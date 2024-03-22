@@ -1,28 +1,30 @@
-.TH _PRINTF 3 2024-03-20 GNU
+.TH _printf 2024-03-20 GNU
+
+"user commands"
 
 .SH NAME
 
-_printf - formated output conversion
+.B _printf
 
 .SH SYNOPSIS
 
 #include "main.h"
 
+.sp
 int _printf(const char *format, ...);
 
-int print_number(int n);
+.sp
+int
+print_number(int n);
 
-int _putchar(char c);
+.sp
+int
+_putchar(char c);
 
-typedef struct converter
-.RS 2
-{
+.sp
+int
+decimal(va_list args);
 
-int (*f)(va_list);
-
-}
-
-convert;
 .RE
 .SH DESCRIPTION
 
@@ -46,15 +48,19 @@ FORMAT controls the output as in C printf.  Interpreted sequences are:
 
 %c 	 character
 
-.B Example
+.SH RETURN VALUE
+returns the number of characters printed (excluding the null byte used to end output to strings).
+
+
+.SH Example
 
 #include "main.h"
 
 int main(void)
 
-	_printf("This is our own _printf function")
+_printf("This is our own _printf function")
 
-		return (0);
+return (0);
 
 .B Example #2
 
@@ -70,9 +76,8 @@ int main(void)
     return (0);
 }
 
-
-
-
+>SH BUGS
+FUnction prints and compiles perfect, but using printf("%") does not return 0.
 
 .SH AUTHORS
 Bryan Garcia Suarez & Elvin Millan
