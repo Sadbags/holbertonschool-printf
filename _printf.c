@@ -8,6 +8,10 @@ int _printf(const char *format, ...)
     int count = 0;
     va_start(args, format);
 
+    if (strcmp(format, "%") == 0) {
+        return 0;
+    }
+    
     while (*format != '\0') {
         if (*format == '%') {
             format++;
