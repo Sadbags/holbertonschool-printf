@@ -32,3 +32,16 @@ count++;
 
 return count;
 }
+
+/**
+ * decimal - process a decimal number
+ * @args: The argument list
+ * 
+ * Return:The number of characters printed
+*/
+int decimal(va_list args)
+{
+    int num = va_arg(args, int);
+
+    return(printf("%d", num));
+}

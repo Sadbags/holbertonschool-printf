@@ -1,72 +1,76 @@
-#include "main.h"
+#include <stdarg.h>
+#include <stdio.h>
 
-/**
- * _printf - prints anything
- * @format: string to print
- *
- * Return: total count of characters printed
- */
-int _printf(const char *format, ...)
-{
-int i = 0, count = 0;
-va_list valist;
-va_start(valist, format);
+int _printf(const char *format, ...) {
+    va_list args;
+    void *ptr;
+    int count = 0;
+    va_start(args, format);
+    
 
-if (format == NULL)
-return (-1);
+    while (*format != '\0') {
+        if (*format == '%') {
+            format++;
+            switch (*format) {
+                case 'p': 
+                    ptr = va_arg(args, void *);
+                    count += printf("%p", ptr);
+                    break;
+                case 'c': 
+                {
+                    char c = va_arg(args, int);
+                    putchar(c);
+                    count++;
+                    break;
+                }
+                case 's': 
+                {
+                    char *str = va_arg(args, char *);
+                    count += printf("%s", str);
+                    break;
+                }
+                case 'd':
+                case 'i':
+                {
+                    int num = va_arg(args, int);
+                    count += printf("%d", num);
+                    break;
+                }
+                case 'u': 
+                {
+                    unsigned int num = va_arg(args, unsigned int);
+                    count += printf("%u", num);
+                    break;
+                }
+                case 'o': {
+                    unsigned int num = va_arg(args, unsigned int);
+                    count += printf("%o", num);
+                    break;
+                }
+                case 'x': 
+                case 'X':
+                {
+                    unsigned int num = va_arg(args, unsigned int);
+                    count += printf("%x", num);
+                    break;
+                }
+                case 'r': 
+                {
+                    count += printf("%%r");
+                    break;
+                }
+                default:
+                    count += printf("%%");
+                    break;
+            }
+        } else {
+            putchar(*format);
+            count++;
+        }
+        format++;
+    }
 
-while (format[i] != '\0')
-{
-if (format[i] == '%' && format[i + 1] != '\0')
-{
-if (format[i + 1] == '%')
-{
-count += _putchar(format[i++]);
-i++;
-}
-else if (format[i + 1] == 'c')
-{
-char ch = va_arg(valist, int);
-count += _putchar(ch);
-i += 2;
-}
-else if (format[i + 1] == 's')
-{
-char *str = va_arg(valist, char *);
-if (str == NULL)
-str = "(null)";
-while (*str)
-{
-count += _putchar(*str);
-str++;
-}
-i += 2;
-}
-else if (format[i + 1] == '%')
-{
-count += _putchar('%');
-i += 2;
-}
-else if (format[i + 1] == 'd' || format[i + 1] == 'i')
-{
-int num = va_arg(valist, int);
-count += print_number(num);
-i += 2;
-}
-else
-{
-count += _putchar('%');
-count += _putchar(format[i + 1]);
-i += 2;
-}
-}
-else
-{
-count += _putchar(format[i]);
-i++;
-}
+    va_end(args);
+    return count;
 }
 
-va_end(valist);
-return (count);
-}
