@@ -11,6 +11,11 @@ int _printf(const char *format, ...)
     while (*format != '\0') {
         if (*format == '%') {
             format++;
+            if (*format == '\0') {
+                putchar('%');
+                count++;
+                continue;  // Continuar con la próxima iteración del bucle
+            }
             switch (*format) {
                 case 'p': {
                     void *ptr = va_arg(args, void *);
@@ -61,6 +66,7 @@ int _printf(const char *format, ...)
                 }
                 default:
                     putchar('%');
+                    count++;
                     putchar(*format);
                     count++;
                     break;
