@@ -21,6 +21,10 @@ The format specifiers when printing numbers, strings or characters are:
 
 * %c - prints a character
 * %s - prints a string
+* %p - prints pointers
+* %u - prints number in decimal format
+* %x - prints number without sign in hexadecimal format (lowercasse)
+* %X - prints number without sign in hexadecimal format  (Uppercase)
 * %i - prints a number from -2,147,483,648 to 2,147,483,647
 * %d - prints a number from -2,147,483,648 to 2,147,483,647
 
