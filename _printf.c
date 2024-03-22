@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdarg.h>
 #include <stdio.h>
+#include <string.h>
 
 int _printf(const char *format, ...) 
 {
@@ -11,7 +12,7 @@ int _printf(const char *format, ...)
     if (strcmp(format, "%") == 0) {
         return 0;
     }
-    
+
     while (*format != '\0') {
         if (*format == '%') {
             format++;
