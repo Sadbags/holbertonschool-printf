@@ -51,11 +51,14 @@ The output will be:
 
 # Files 
 
-* _printf.c: main function
-* main.h: header file
-* man_3_printf: Man page
-* README.md: this file
-* _putchar.c: putchar function
+* _printf.c:
+* main.h:
+* man_3_printf:
+* README.md:
+* parse_format.c:
+* print_string:
+* process_decimal:
+* Handle_conversations:
 
 # Flowchart
 ![image](https://github.com/Sadbags/holbertonschool-printf/assets/159051688/ddf57731-9d80-4dee-91f9-0354ec869964)
