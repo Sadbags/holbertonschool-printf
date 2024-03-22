@@ -14,7 +14,7 @@ int _printf(const char *format, ...)
             if (*format == '\0') {
                 putchar('%');
                 count++;
-                break;  // Salir del bucle si el formato termina con '%'
+                break;
             }
             switch (*format) {
                 case 'p': {
