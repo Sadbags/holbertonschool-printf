@@ -11,10 +11,10 @@ int _printf(const char *format, ...)
     while (*format != '\0') {
         if (*format == '%') {
             format++;
-            if (*format == '\0') {
+            if (*format == '\0') { 
                 putchar('%');
                 count++;
-                break;
+                break; 
             }
             switch (*format) {
                 case 'p': {
